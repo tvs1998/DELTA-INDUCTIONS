@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+  var room = 1;
+  function addmore() {
+  room++;
+  var obj = document.getElementById('one')
+  var divtest = document.createElement("div");
+  divtest.setAttribute('id',"foo"+(room));
+  divtest.innerHTML = '< div class="content" id="foo"'+room' ><span>Profile-Name: <input type="text" style="width:250px;" name="Profiles[]" value="" /></span><span> Rating: <input type="text" id="foo"+room++ style="width:90px;" name="length[]" value="" /></span></div>';
+
+  obj.appendChild(divtest)
+  }
+  </script>
+</head>
+<body>
+<input type="button" id="two" onclick="addmore();" value="Add More" />
+<div id="one">
+
+  <div>
+    <div class="content" >
+      <span>Profile-Name: <input type="text" id="1" style="width:250px;" name="Profiles[]" value="" /></span>
+      <span>Rating: <input type="text" id="2" style="width:90px;" name="Rating[]" value="" /></span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
