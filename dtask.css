@@ -1,0 +1,66 @@
+body{
+  background-image: none;
+  background-color: crimson;
+}
+input{
+  font-family: sans-serif;
+  font-size: 100%;
+  color: black;
+  background-color: white;
+  border: 1px solid orange;
+  border-radius: 20px;
+  padding: 5px auto 5px auto ;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-bottom: 10px;
+  height: 50px;
+  alignment: center;
+  text-transform: uppercase;
+}
+img.two {
+  alignment: right;
+  height: 400px;
+  width: 920px;
+  margin-top: 0px;
+  vertical-align: top;
+  border-bottom: 1px lime;
+}
+img.one{
+  height: 400px;
+  width:400px;
+  border: solid lime;
+  background: white;
+}
+img {
+  display: inline
+}
+
+input:focus. {
+  background-color: #ffffff;
+  border: 1px solid #b1e1e4;}
+.idonno{
+  font-size: 300%;
+  text-align: center;
+  color: green;
+  margin: 20px 400px 20px 900px;
+}
+input#sol{
+  background-color: green;
+  padding: 5px auto 5px auto;
+  alignment: right;
+}
+.three{
+  alignment="right"
+  color: white;
+}
+
+input#sol:hover{
+  background-color: lime;
+
+}
+.label{
+  color: yellow;
+  border: none;
+  margin: 20px auto 20px auto;
+
+}

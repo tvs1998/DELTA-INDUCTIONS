@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="dtask.css" type="text/css" rel="stylesheet">
+<img class="one" src="https://delta.nitt.edu/images/deltaLogoGreen.png">
+  <img class="two" src="http://www.thehindu.com/opinion/open-page/article19194062.ece/alternates/FREE_660/Cryptography">
+  <script>
+  var task=1;
+  function solution(){
+  task++;
+  var obj=document.getElementById("add");
+  var test=document.createElement("div");
+
+  test.innerHTML='<div class="label" >Task '+task+':</div> <div class="content"><span><input type="text" id=task style="width: 800px" value="" name="tasks[]"/> </span> </div>'
+  obj.appendChild(test)
+  }
+  </script>
+</head>
+<body>
+<div class="idonno">
+<input type="button"   class="three" id="sol" onclick="solution()" value="+">
+</div>
+<div id="add">
+<div>
+  <div class="label" >Task 1:</div>
+  <div class="content">
+    <span><input type="text" id="five" style= "width: 800px"  value="" name="tasks[]"/> </span>
+  </div>
+</div>
+</body>
+</html>
+
+

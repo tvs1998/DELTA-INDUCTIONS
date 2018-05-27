@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage-profiles</title>
+
+  <link href="profile.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div id="hold">
+  <form id="table-input">
+    <label for="profile">PROFILE-NAME:</label>
+    <input id="profile" style="width: 300px" type="text" placeholder="Enter the profile name"> <br>
+    <label for="age" >AGE:</label>
+    <input id="age" style="width: 100px" type="text" placeholder="Enter Age"> <br>
+    <label for="date" >LAST UPDATED:</label>
+    <input id="date" style="width: 120px" type="date" > <br>
+    <label for="Rating">RATING:</label>
+    <input id="Rating" style="width: 120px" type="text" placeholder="Enter rating"> <br>
+    <label for="feedback" >COMMENTS:</label>
+    <input id="feedback" style="width: 800px"  type="text" placeholder="Enter feedback and suggestions"> <br>
+
+    <input id="createtable" type="button" value="Save" onclick="maketable()"/> <br>
+  </form>
+
+</div>
+<div id="nice">
+  <table id="mytable">
+    <thead>
+     <tr>
+       <td class="one" >Profile-Name</td>
+       <td class="one" id="home" onclick="rankdisplay(1);">Rating</td>
+       <td class="one">More</td>
+       <td class="one">Manage</td>
+
+    </tr>
+    </thead>
+    <tbody></tbody>
+
+  </table>
+
+</div>
+<div id="three">
+  <input id="two" type="button" value="Distinguish" onclick="happens();" />
+</div>
+<script>
+  var ages=[];
+  var dates=[];
+  var feedb=[];
+  function maketable(){
+    var rows="";
+    var name=document.getElementById("profile").value;
+    var ratin=document.getElementById("Rating").value;
+    var ageref=document.getElementById("age");
+    ages.push(ageref.value);
+    var feedbref=document.getElementById("feedback");
+    feedb.push(feedbref.value);
+    var dateref=document.getElementById("date");
+    dates.push(dateref.value);
+
+    rows+="<td>"+ name + "</td><td>" + ratin + "</td><td><details></details></td><td><input type='button' value='delete-profile' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);'/></td>";
+    var tbody=document.querySelector("#mytable tbody");
+     var tr=document.createElement("tr");
+    tr.innerHTML=rows;
+    tbody.appendChild(tr);
+
+
+    clearanddisplay();
+  }
+  function clearanddisplay() {
+    document.getElementById("table-input").reset();
+  }
+  function rankdisplay(n) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("mytable");
+    switching = true;
+    while(switching) {
+      switching = false;
+      rows = document.getElementsByTagName("TR");
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }function happens() {
+    var rows = document.getElementById("mytable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+      cells = rows[i].getElementsByTagName('td');
+      if (Number(cells[1].innerHTML) >= 6) {
+        rows[i].style.backgroundColor="green";
+      }
+      if (Number(cells[1].innerHTML) < 6) {
+        rows[i].style.backgroundColor="red";
+      }
+    }
+  }
+     var rows = document.getElementById("mytable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+  var obj=document.getElementsByTagName('details');
+  for(var i=0;i<rows.length;i++)
+  {
+    var sel=document.createElement("div");
+     var attach="";
+    attach+="<span>"+ages[i]+"<br>"+dates[i]+"<br>"+feedb[i]+"</span>";
+    sel.innerHTML=attach;
+    obj[i].appendChild(sel);
+  }
+   </script>
+</body>
+</html>

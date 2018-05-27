@@ -1,0 +1,46 @@
+img.align-center{
+  display: block;
+  margin: 0px auto;
+}
+img.medium{
+  width: 900px;
+  height: 600px;
+}
+body{
+  font-family: arial, Verdana, sans-serif;
+  background-color: dimgray;
+  padding: 10px;
+}
+#home{
+  max-width: 940px;
+  min-width: 720px;
+  margin: 10px auto 10px auto;
+  padding: 20px;
+  border: 4px double aqua ;
+  background-color: black;
+}
+li {
+  display: inline;
+  margin-right: 0px 80px;
+}
+ul {
+  width: 800px;
+  padding: 15px;
+  margin: 20px auto 20px auto;
+  border-top: 2px solid lime;
+  border-bottom: 1px solid lime;
+  text-align: center;
+}
+a {
+  color: darkorange;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 6px 18px 5px 18px;
+  margin: 400px auto 80px auto;
+
+}
+a:hover{
+  color: aqua;
+  background-color: navy;}
+
+
