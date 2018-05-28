@@ -30,7 +30,7 @@
     <thead>
      <tr>
        <td class="one" >Profile-Name</td>
-       <td class="one" id="home" onclick="rankdisplay(1);">Rating</td>
+       <td class="one" id="home" onclick="rankdisplay(1); dothis();">Rating<br><h6>click here to sort</h6></td>
        <td class="one">More</td>
        <td class="one">Manage</td>
 
@@ -48,6 +48,9 @@
   var ages=[];
   var dates=[];
   var feedb=[];
+  var use=0;
+  var del=0;
+  var v=use-del;
   function maketable(){
     var rows="";
     var name=document.getElementById("profile").value;
@@ -59,12 +62,23 @@
     var dateref=document.getElementById("date");
     dates.push(dateref.value);
 
-    rows+="<td>"+ name + "</td><td>" + ratin + "</td><td><details></details></td><td><input type='button' value='delete-profile' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);'/></td>";
+    rows+="<td>"+ name + "</td><td>" + ratin + "</td><td><details></details></td><td><input type='button' value='delete-profile' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);del++;'/></td>";
     var tbody=document.querySelector("#mytable tbody");
      var tr=document.createElement("tr");
     tr.innerHTML=rows;
     tbody.appendChild(tr);
+    var rowes = document.getElementById("mytable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    var obj=document.getElementsByTagName('details');
 
+    for(var i=use-del;i<rowes.length;i++)
+    {
+      var sel=document.createElement("div");
+      var attach="";
+      attach+="<span>Age:"+ages[i+del]+"<br>Last updated:"+dates[i+del]+"<br>Comments:"+feedb[i+del]+"</span>";
+      sel.innerHTML=attach;
+      obj[i].appendChild(sel);
+      use++;
+    }
 
     clearanddisplay();
   }
@@ -104,16 +118,8 @@
       }
     }
   }
-     var rows = document.getElementById("mytable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-  var obj=document.getElementsByTagName('details');
-  for(var i=0;i<rows.length;i++)
-  {
-    var sel=document.createElement("div");
-     var attach="";
-    attach+="<span>"+ages[i]+"<br>"+dates[i]+"<br>"+feedb[i]+"</span>";
-    sel.innerHTML=attach;
-    obj[i].appendChild(sel);
-  }
+
+
    </script>
 </body>
 </html>
